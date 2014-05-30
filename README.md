@@ -3,7 +3,6 @@ LNCPMV
 
 LNCPMV - {ln,cp,mv}{date,note,time}
 
-
 Use a single uility to link, copy or move a file with an extension based on the date, a note or the time.
 
 If called as LNCPMV, creates the files listed in LIST below as hardlinks.
@@ -28,7 +27,7 @@ If called as LNCPMV, creates the files listed in LIST below as hardlinks.
 
 # Credits
 
-This is an ancient script from the Public Domain. It was passed around from floppy disk to floppy disk since before some of you were born.
+This is an ancient script from the Public Domain. It was passed around from floppy disk to floppy disk, from modem and uucp since the old days. Way before my time.
 
 The original authors are:
 
