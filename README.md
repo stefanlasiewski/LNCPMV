@@ -47,7 +47,7 @@ The original authors are:
 
 # Note for the 21st centry
 
-This git repo is an archive of an old Unix/Linux utility that I wanted to preserve
-for posterity. It dates from the early days of the internet & was provided to
-me at my first tech job. I still had it in my own personal archive of tools and
-wanted to share it. -- Stefan
+This Git repository is an archive of an old Unix/Linux utility that I preserved
+for posterity. It dates back to the early days of the internet and was
+originally provided to me during my first tech job. I found it in my personal
+archive of tools and wanted to share it with others.  — Stefan
