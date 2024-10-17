@@ -9,6 +9,7 @@ If called as LNCPMV, creates the files listed in LIST below as hardlinks.
 
 # Usage
 
+```
   Usage: {LNCPMV,"{cp,mv}{date,note,time} {args}"}
   
   LNCPV   -- This utility, when run, will create hardlinks to itself.
@@ -24,6 +25,7 @@ If called as LNCPMV, creates the files listed in LIST below as hardlinks.
   mvdate  -- The moved file will end with the `date`
   mvnote  -- The moved file will end with a custom note
   mvtime  -- The moved file will end with the time
+```
 
 # Original Credits
 
