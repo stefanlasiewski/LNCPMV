@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# {LNCPMV,"{cp,mv}{date,note,time} {args}"}
+# {LNCPMV,"{cp,mv}{date,note,time,orig} {args}"}
 #
 # If called as LNCPMV, creates the files listed in LIST below as hardlinks.
 #
@@ -23,7 +23,7 @@
 
 
 DATE=/bin/date
-LIST='cpdate cpnote cptime cpbak mvdate mvnote mvtime mvbak'
+LIST='cpdate cpnote cptime cpbak cporig mvdate mvnote mvtime mvbak mvorig'
 PATH=/bin:$PATH
 
 ## No more changes should be needed, unless new names are being added.
@@ -65,6 +65,13 @@ case $key in
   case $# in
     1) source="$1"; target="$1.bak" ;;
     2) source="$1"; target="${2}/${1}.bak" ;;
+    *) echo "Usage:   $key file [path]"; exit 1 ;;
+  esac
+  ;;
+  *orig)
+  case $# in
+    1) source="$1"; target="$1.orig" ;;
+    2) source="$1"; target="${2}/${1}.orig" ;;
     *) echo "Usage:   $key file [path]"; exit 1 ;;
   esac
   ;;
