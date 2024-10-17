@@ -1,5 +1,5 @@
 #!/bin/sh
-# 
+#
 # {LNCPMV,"{cp,mv}{date,note,time} {args}"}
 #
 # If called as LNCPMV, creates the files listed in LIST below as hardlinks.
@@ -32,49 +32,49 @@ PATH=/bin:$PATH
 key=$(basename $0)
 
 case $key in
-    cp*)    cmd='/bin/cp -p';;
-    mv*)    cmd='/bin/mv'   ;;
-    LNCPMV)    for i in $LIST; do
-            [[ -f $i ]] && rm $i
-                ln "$0" $i
-            done;
-            exit 0 ;;
-    *)        echo "$0 unmatched -- what command is that"; exit 1 ;;
+  cp*)  cmd='/bin/cp -p';;
+  mv*)  cmd='/bin/mv'   ;;
+  LNCPMV)  for i in $LIST; do
+    [ -f $i ] && rm $i
+      ln -v "$0" $i
+    done;
+    exit 0 ;;
+  *)    echo "$0 unmatched -- what command is that"; exit 1 ;;
 esac
 
 case $key in
-    *date)
-    case $# in
-        1) source="$1"; target="$1" ;;
-        2) source="$1"; target="${2}/${1}" ;;
-        *) echo "Usage:     $key file [path]"; exit 1 ;;
-    esac
+  *date)
+  case $# in
+    1) source="$1"; target="$1" ;;
+    2) source="$1"; target="${2}/${1}" ;;
+    *) echo "Usage:   $key file [path]"; exit 1 ;;
+  esac
 
-    target="${target}.$($DATE '+%Y-%m-%d').bak"
-    ;;
-    *time)
-    case $# in
-        1) source="$1"; target="$1" ;;
-        2) source="$1"; target="${2}/${1}" ;;
-        *) echo "Usage:     $key file [path]"; exit 1 ;;
-    esac
+  target="${target}.$($DATE '+%Y-%m-%d').bak"
+  ;;
+  *time)
+  case $# in
+    1) source="$1"; target="$1" ;;
+    2) source="$1"; target="${2}/${1}" ;;
+    *) echo "Usage:   $key file [path]"; exit 1 ;;
+  esac
 
-    target="${target}.$($DATE '+%Y-%m-%dT%T').bak"
-    ;;
-    *bak)
-    case $# in
-        1) source="$1"; target="$1.bak" ;;
-        2) source="$1"; target="${2}/${1}.bak" ;;
-        *) echo "Usage:     $key file [path]"; exit 1 ;;
-    esac
-    ;;
-    *note)
-    case $# in
-        2) source="$1"; target="${1}.${2}" ;;
-        3) source="$1"; target="${2}/${1}.${3}" ;;
-        *) echo "Usage:     $key file [path] note"; exit 1 ;;
-    esac
-    ;;
+  target="${target}.$($DATE '+%Y-%m-%dT%T').bak"
+  ;;
+  *bak)
+  case $# in
+    1) source="$1"; target="$1.bak" ;;
+    2) source="$1"; target="${2}/${1}.bak" ;;
+    *) echo "Usage:   $key file [path]"; exit 1 ;;
+  esac
+  ;;
+  *note)
+  case $# in
+    2) source="$1"; target="${1}.${2}" ;;
+    3) source="$1"; target="${2}/${1}.${3}" ;;
+    *) echo "Usage:   $key file [path] note"; exit 1 ;;
+  esac
+  ;;
 esac
 
 echo $cmd "$source" "$target"
